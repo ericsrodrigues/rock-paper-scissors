@@ -3,15 +3,15 @@ function getComputerChoice() {
   return Math.floor(Math.random() * 3);
 }
 let playerSelection = () => {
-  prompt("Digite uma opção: ").toLowerCase();
-  if (playerSelection === "rock") {
-    playerSelection = 0;
-  } else if (playerSelection === "paper") {
-    playerSelection = 1;
-  } else if (playerSelection === "scissor") {
-    playerSelection = 2;
+  let playerPrompt = prompt("Digite uma opção: ").toLowerCase();
+  if (playerPrompt === "rock") {
+    return (playerPrompt = 0);
+  } else if (playerPrompt === "paper") {
+    return (playerPrompt = 1);
+  } else if (playerPrompt === "scissor") {
+    return (playerPrompt = 2);
   } else {
-    alert(
+    return alert(
       "Invalid option. Please select between Rock, Paper or Scissor and type again!"
     );
   }
