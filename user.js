@@ -1,6 +1,7 @@
 let playerPoints = 0;
 let computerPoints = 0;
 let i = 0;
+
 // 0 = Rock, 1 = Paper, 2 = Scissors
 function getComputerChoice() {
   return Math.floor(Math.random() * 3);
@@ -63,3 +64,5 @@ function playGame() {
   }
   return (playerPoints = 0), (computerPoints = 0), (i = 0);
 }
+
+playGame();
