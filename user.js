@@ -1,5 +1,6 @@
 let playerPoints = 0;
 let computerPoints = 0;
+let i = 0;
 // 0 = Rock, 1 = Paper, 2 = Scissors
 function getComputerChoice() {
   return Math.floor(Math.random() * 3);
@@ -12,7 +13,7 @@ let playerSelection = () => {
     playerPrompt !== "scissor"
   ) {
     return alert(
-      "Invalid option. Please select between Rock, Paper or Scissor and type again!"
+      "Invalid option. Please select between Rock, Paper or Scissor and try again!"
     );
   } else {
     return playerPrompt;
@@ -44,21 +45,21 @@ function playRound(player, computer) {
   } else if (player === "scissor" && computer === 1) {
     alert("You win! Scissor beats Paper");
     return playerPoints++;
+  } else {
+    i--;
   }
 }
 
 function playGame() {
-  for (let i = 0; i < 5; i++) {
+  for (i; i < 5; i++) {
     playRound(playerSelection(), getComputerChoice());
   }
   if (playerPoints > computerPoints) {
-    alert("You win, congratulations!!!")
-    return playerPoints = 0, computerPoints = 0;
+    alert("You win, congratulations!!!");
   } else if (playerPoints < computerPoints) {
-    alert("You lose, better luck next time.")
-    return playerPoints = 0, computerPoints = 0;
+    alert("You lose, better luck next time.");
   } else {
-    alert("It's a tie!")
-    return playerPoints = 0, computerPoints = 0;
+    alert("It's a tie!");
   }
+  return (playerPoints = 0), (computerPoints = 0), (i = 0);
 }
