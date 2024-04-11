@@ -1,3 +1,5 @@
+let playerPoints = 0;
+let computerPoints = 0;
 // 0 = Rock, 1 = Paper, 2 = Scissors
 function getComputerChoice() {
   return Math.floor(Math.random() * 3);
@@ -22,19 +24,41 @@ function playRound(player, computer) {
     alert("It's a tie! You two choose Rock");
   } else if (player === "rock" && computer === 1) {
     alert("You lose! Paper beats Rock");
+    return computerPoints++;
   } else if (player === "rock" && computer === 2) {
     alert("You win! Rock beats Scissor");
+    return playerPoints++;
   } else if (player === "paper" && computer === 1) {
     alert("It's a tie! You two choose Paper");
   } else if (player === "paper" && computer === 0) {
     alert("You win! Paper beats Rock");
+    return playerPoints++;
   } else if (player === "paper" && computer === 2) {
     alert("You lose! Scissor beats Paper");
+    return computerPoints++;
   } else if (player === "scissor" && computer === 2) {
     alert("It's a tie! You two choose Scissor");
   } else if (player === "scissor" && computer === 0) {
     alert("You lose! Rock beats Scissor");
-  } else {
+    return computerPoints++;
+  } else if (player === "scissor" && computer === 1) {
     alert("You win! Scissor beats Paper");
+    return playerPoints++;
+  }
+}
+
+function playGame() {
+  for (let i = 0; i < 5; i++) {
+    playRound(playerSelection(), getComputerChoice());
+  }
+  if (playerPoints > computerPoints) {
+    alert("You win, congratulations!!!")
+    return playerPoints = 0, computerPoints = 0;
+  } else if (playerPoints < computerPoints) {
+    alert("You lose, better luck next time.")
+    return playerPoints = 0, computerPoints = 0;
+  } else {
+    alert("It's a tie!")
+    return playerPoints = 0, computerPoints = 0;
   }
 }
